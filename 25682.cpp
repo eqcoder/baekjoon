@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int n[2001][2001], ans=4000000;
+int n[2001][2001], ans = 4000000;
 
 int main() {
 	ios_base::sync_with_stdio(false);
