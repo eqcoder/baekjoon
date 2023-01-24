@@ -24,8 +24,10 @@ int main()
         }
     }
     for (int i = 1; i <= n; i++)
+    {
         if (!cnt[i])
             q.push(i);
+    }
     while (!q.empty())
     {
         x = q.front();
