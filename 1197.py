@@ -14,25 +14,23 @@ def find(x):
 def union(a, b):
     a = find(a)
     b = find(b)
+    if a==b:
+        return False
     if a < b:
         parent[b] = a
     else:
         parent[a] = b
+    return True
+def kruscal():
+    cost=0
+    for a,b,c in paths:
+        if union(a,b):
+            cost+=c
+    return cost
 
 
 N, M = map(int, input().split())
 parent = [i for i in range(N + 1)]
-paths = []
-result = 0
-for _ in range(M):
-    a, b, c = map(int, input().split())
-    paths.append((a, b, c))
+paths = [tuple(map(int, input().split())) for _ in range(M)]
 paths.sort(key=lambda x: x[2])
-for path in paths:
-    a, b, c = path
-    if (find(a) != find(b)):
-        union(a, b)
-        result += c
-        if value <= c:
-            value = c
-print(result - value)
+print(kruscal())
